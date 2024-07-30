@@ -22,7 +22,6 @@ document.getElementById('salaryForm').addEventListener('submit', function(event)
         </div>
     `;
 });
-
 function calculateSalaryStructureFive(profit_usd) {
     let bonus_usd, explanation;
     if (profit_usd <= 100000) {
@@ -31,15 +30,9 @@ function calculateSalaryStructureFive(profit_usd) {
     } else if (profit_usd <= 150000) {
         bonus_usd = (0.045 * 100000) + (0.065 * (profit_usd - 100000));
         explanation = `4.5% of 100000 USD + 6.5% of ${profit_usd - 100000} USD`;
-    } else if (profit_usd <= 200000) {
+    } else {
         bonus_usd = (0.045 * 100000) + (0.065 * 50000) + (0.105 * (profit_usd - 150000));
         explanation = `4.5% of 100000 USD + 6.5% of 50000 USD + 10.5% of ${profit_usd - 150000} USD`;
-    } else if (profit_usd <= 250000) {
-        bonus_usd = (0.045 * 100000) + (0.065 * 50000) + (0.105 * 50000) + (0.125 * (profit_usd - 200000));
-        explanation = `4.5% of 100000 USD + 6.5% of 50000 USD + 10.5% of 50000 USD + 12.5% of ${profit_usd - 200000} USD`;
-    } else {
-        bonus_usd = (0.045 * 100000) + (0.065 * 50000) + (0.105 * 50000) + (0.125 * 50000) + (0.155 * (profit_usd - 250000));
-        explanation = `4.5% of 100000 USD + 6.5% of 50000 USD + 10.5% of 50000 USD + 12.5% of 50000 USD + 15.5% of ${profit_usd - 250000} USD`;
     }
     const salary_aed = bonus_usd * 3.67;
     return { salary: salary_aed, explanation: explanation };
